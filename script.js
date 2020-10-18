@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		   			   .style("top", d.TimeScaled + padding + "px")
 		   			   .style("background-color", d.Doping === ""? fill_normal : fill_doping)
 		   			   .attr("data-year", d.Year);	
-		   		d3.select(event.target).style("opacity","1");
+		   		d3.select(event.target).style("opacity",1);
 		  		})   
 		  	.on("mouseout",function(event){
 		  		tooltip.transition().duration(100).style('opacity',0);
