@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			.select("main")
 			.append("div")
 			.attr("id","tooltip")
-			.style("opacity","0")
+			.style("visibility","hidden")
 			.style("position","absolute");
 
 		//Plot dots
@@ -162,17 +162,17 @@ document.addEventListener('DOMContentLoaded', function(){
 		   .attr("data-xvalue", d => d.Year)
 		   .attr("data-yvalue", d => d.TimeFormatted)
 		   .on("mouseover", function(event,d) {
-		   		tooltip.transition().duration(100).style('opacity', 0.9);
+		   		tooltip.transition().duration(100).style("visibility", "visible");
 		   		tooltip.html(d.Name + "<br>" + d.Nationality + "<br>" + d.Year +
 		   			     " - " + d.Time + "<br>" + d.Doping)
 		   			   .style("left",  d.YearScaled + 20 + "px" )
 		   			   .style("top", d.TimeScaled + padding + "px")
 		   			   .style("background-color", d.Doping === ""? fill_normal : fill_doping)
-		   			   .attr("data-year", d.Year);	
-		   		d3.select(event.target).style("opacity",1);
-		  		})   
+		   			   .attr("data-year", d.Year);
+		   		d3.select(event.target).style("opacity",1);	
+		  	})   
 		  	.on("mouseout",function(event){
-		  		tooltip.transition().duration(100).style('opacity',0);
+		  		tooltip.transition().duration(100).style("visibility", "hidden");
 		  		d3.select(event.target).style("opacity","0.8");
 		  	})
 	}	
